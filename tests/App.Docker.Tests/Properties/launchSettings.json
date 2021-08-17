@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TPT.Tests": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

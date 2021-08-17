@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>ed7574af-5dea-48a2-9dda-de4be511f75d</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <AssemblyName>App.Docker.Api</AssemblyName>
+    <RootNamespace>App.Docker.Api</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.Docker.Domain\App.Docker.Domain.csproj" />
+    <ProjectReference Include="..\App.Docker.Infra.CrossCutting.Identity\App.Docker.Infra.CrossCutting.Identity.csproj" />
+    <ProjectReference Include="..\App.Docker.Infra.CrossCutting.Ioc\App.Docker.Infra.CrossCutting.Ioc.csproj" />
+  </ItemGroup>
+
+
+</Project>
