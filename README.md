@@ -4,8 +4,11 @@
 # Requisitos
 Baixe e instale o Docker em: https://www.docker.com/products/docker-desktop
 # Configuração
-Execute o arquivo "MountDockerImages.bat" e aguarde a configuração dos serviços.
-A aplicação executará em: http://localhost:5001/swagger/index.html
+Execute o arquivo
+```bash
+MountDockerImages.bat
+```
+Aguarde a configuração dos serviços e navegue para http://localhost:5001/swagger/index.html
 	
 # Cadastrar usuário
 ```json
