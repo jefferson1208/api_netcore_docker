@@ -1,16 +1,16 @@
 # Api Docker
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Requisitos
+## Requisitos
 Baixe e instale o Docker em: https://www.docker.com/products/docker-desktop
-# Configuração
+## Configuração
 Execute o arquivo
 ```bash
 MountDockerImages.bat
 ```
 Aguarde a configuração dos serviços e navegue para http://localhost:5001/swagger/index.html
 	
-# Cadastrar usuário
+## Cadastrar usuário
 ```json
 {
 	"userName": "Usuario de acesso",
@@ -20,7 +20,7 @@ Aguarde a configuração dos serviços e navegue para http://localhost:5001/swag
 	"email": "email valido"
 } 
 ```
-# Requisitar token
+## Requisitar token
 /api/v1/users/signIn
 
 ```json
@@ -30,7 +30,7 @@ Aguarde a configuração dos serviços e navegue para http://localhost:5001/swag
 } 
 ```
 
-# Logando na Api
+## Logando na Api
 Copie o token gerado
 ```json
 {
