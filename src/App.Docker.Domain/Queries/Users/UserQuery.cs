@@ -75,7 +75,7 @@ namespace App.Docker.Domain.Queries.Users
         private Expression<Func<User, bool>> CreateFilter(Dictionary<string, string> filtros)
         {
             Expression<Func<User, bool>> query = h => true;
-            var datas = new List<DateTime>();
+            var dates = new List<DateTime>();
 
             foreach (var filtro in filtros)
             {
@@ -91,14 +91,14 @@ namespace App.Docker.Domain.Queries.Users
                         query = query.And(q => q.Email.Contains(filtro.Value));
                         break;
                     default:
-                        datas.Add(ConvertStringToDateTime(filtro.Value));
+                        dates.Add(ConvertStringToDateTime(filtro.Value));
                         break;
                 }
             }
 
-            if(datas.Count > 1)
+            if(dates.Count > 1)
             {
-                query = query.And(q => q.RegistrationDate >= datas[0] && q.RegistrationDate <= datas[1]);
+                query = query.And(q => q.RegistrationDate >= dates[0] && q.RegistrationDate <= dates[1]);
             }
 
             return query;
