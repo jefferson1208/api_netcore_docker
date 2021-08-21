@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNet.OData.Formatter;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -14,21 +12,6 @@ namespace App.Docker.Infra.CrossCutting.Ioc.Swagger
 {
     public static class SwaggerConfig
     {
-        //private static void AddFormatters(IServiceCollection services)
-        //{
-        //    services.AddMvcCore(options =>
-        //    {
-        //        foreach (var outputFormatter in options.OutputFormatters.OfType<ODataOutputFormatter>().Where(x => x.SupportedMediaTypes.Count == 0))
-        //        {
-        //            outputFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/prs.odatatestxx-odata"));
-        //        }
-
-        //        foreach (var inputFormatter in options.InputFormatters.OfType<ODataInputFormatter>().Where(x => x.SupportedMediaTypes.Count == 0))
-        //        {
-        //            inputFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/prs.odatatestxx-odata"));
-        //        }
-        //    });
-        //}
         public static void AddSwaggerConfig(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>

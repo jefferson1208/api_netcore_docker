@@ -7,6 +7,6 @@ namespace App.Docker.Domain.Interfaces.Products
 {
     public interface IProductQuery : IDisposable
     {
-        Task<List<ProductDto>> GetAll();
+        Task<List<ProductDto>> GetAll(Dictionary<string, string> filters);
     }
 }

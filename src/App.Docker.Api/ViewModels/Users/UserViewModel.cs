@@ -8,8 +8,6 @@ namespace App.Docker.Api.ViewModels.Users
     {
         public string FullName { get; set; }
         public string UserName { get; set; }
-        public DateTime? InitialRegistrationDate { get; set; }
-        public DateTime? FinalRegistrationDate { get; set; }
         public string Email { get; set; }
         
         public Dictionary<string, string> CreateFilters()

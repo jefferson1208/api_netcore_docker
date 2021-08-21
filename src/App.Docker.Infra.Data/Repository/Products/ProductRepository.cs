@@ -6,6 +6,8 @@ using App.Docker.Domain.Entities;
 using App.Docker.Domain.Interfaces;
 using App.Docker.Domain.Interfaces.Products;
 using App.Docker.Infra.Data.Context;
+using System.Linq.Expressions;
+using System.Linq;
 
 namespace App.Docker.Infra.Data.Repository.Products
 {
@@ -30,9 +32,9 @@ namespace App.Docker.Infra.Data.Repository.Products
             _context?.Dispose();
         }
 
-        public async Task<List<Product>> GetAll()
+        public async Task<List<Product>> GetAll(Expression<Func<Product, bool>> filters)
         {
-            return await _context.Products.AsNoTracking().ToListAsync();
+            return await _context.Products.AsNoTracking().Where(filters).ToListAsync();
         }
 
         public async Task<Product> GetById(Guid id)

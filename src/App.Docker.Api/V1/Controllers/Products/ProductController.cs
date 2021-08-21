@@ -56,9 +56,9 @@ namespace App.Docker.Api.V1.Controllers.Products
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAll()
+        public async Task<ActionResult> GetAll([FromQuery] ProductViewModel product)
         {
-            var products = await _productQuery.GetAll();
+            var products = await _productQuery.GetAll(product.CreateFilters());
 
             return GenerateCustomResponse(products);
 

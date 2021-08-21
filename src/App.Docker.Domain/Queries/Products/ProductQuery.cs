@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using App.Docker.Domain.DTOs.Products;
 using App.Docker.Domain.Entities;
@@ -20,9 +22,9 @@ namespace App.Docker.Domain.Queries.Products
             _productRepository?.Dispose();
         }
 
-        public async Task<List<ProductDto>> GetAll()
+        public async Task<List<ProductDto>> GetAll(Dictionary<string, string> filters)
         {
-            var products = await _productRepository.GetAll();
+            var products = await _productRepository.GetAll(CreateFilter(filters));
 
             return GenerateListProductsDto(products);
         }
@@ -44,6 +46,31 @@ namespace App.Docker.Domain.Queries.Products
             });
 
             return productsDto;
+        }
+
+        private Expression<Func<Product, bool>> CreateFilter(Dictionary<string, string> filtros)
+        {
+            Expression<Func<Product, bool>> query = h => true;
+
+            foreach (var filtro in filtros)
+            {
+                switch (filtro.Key)
+                {
+                    case "Name":
+                        query = query.And(q => q.Name.Contains(filtro.Value.Trim()));
+                        break;
+                    case "Description":
+                        query = query.And(q => q.Description.Contains(filtro.Value.Trim()));
+                        break;
+                    case "Price":
+                        query = query.And(q => q.Price >= Convert.ToDecimal(filtro.Value));
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return query;
         }
     }
 }
