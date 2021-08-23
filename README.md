@@ -8,6 +8,11 @@ Execute o arquivo
 ```bash
 MountDockerImages.bat
 ```
+
+Ou execute o comando abaixo (via cmd), dentro da pasta "docker" do projeto.
+```bash
+docker-compose -f app.Docker_producao.yml up --build
+```
 Aguarde a configuração dos serviços e navegue para http://localhost:5001/swagger/index.html
 	
 ## Cadastrar usuário
